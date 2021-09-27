@@ -2,7 +2,9 @@ import {
     Controller,
     Route,
     SuccessResponse,
-    Get
+    Get,
+    Post,
+    Body
 } from 'tsoa';
 import { PersonService } from './person.service';
 import { Person } from './person';
@@ -16,5 +18,15 @@ export class PersonController extends Controller {
         const personService = new PersonService;
         const person: Person = personService.get();
         return person;
+    }
+
+    @SuccessResponse('201', 'Created')
+    @Post()
+    public post(
+        @Body() requestBody: Person
+    ): Person {
+        const personService = new PersonService;
+        const newPerson: Person = personService.post(requestBody);
+        return newPerson;
     }
 }
