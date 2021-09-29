@@ -15,7 +15,7 @@ export class PersonService {
         return person;
     }
 
-    public post(person: Person) {
+    public post(person: Person): Person {
 
         // When posting data to a database
         // this will be an asycn function with error handling
