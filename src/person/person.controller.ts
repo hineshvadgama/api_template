@@ -17,6 +17,7 @@ export class PersonController extends Controller {
     public get(): Person {
         const personService = new PersonService;
         const person: Person = personService.get();
+        this.setStatus(200);
         return person;
     }
 
@@ -27,6 +28,7 @@ export class PersonController extends Controller {
     ): Person {
         const personService = new PersonService;
         const newPerson: Person = personService.post(requestBody);
+        this.setStatus(201);
         return newPerson;
     }
 }

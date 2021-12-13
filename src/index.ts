@@ -4,12 +4,13 @@ import dotenv from 'dotenv';
 import { RegisterRoutes } from '../tsoa/routes';
 import swaggerUi from 'swagger-ui-express';
 
+export const app: Express = express();
+
 function run() {
 
     dotenv.config();
 
     const PORT = process.env.PORT || 3000;
-    const app: Express = express();
 
     app.use(helmet());
     app.use(express.urlencoded({ extended: true }));
